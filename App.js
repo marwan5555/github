@@ -5,7 +5,7 @@ import SignupScreen from './screens/SignupScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import SplashScreen from './screens/SplashScreen';
 import ChatScreen from './screens/ChatScreen';
-import Home from './Home';
+import Home from './screens/Home';
 
 const Stack = createStackNavigator();
 
