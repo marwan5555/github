@@ -5,10 +5,7 @@ const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    // Handle login logic here
-  };
-
+  
   const handleSignUp = () => {
     navigation.navigate('SignupScreen');
   };
@@ -17,6 +14,12 @@ const LoginScreen = ({ navigation }) => {
     navigation.navigate('ForgotPassword');
   };
 
+  const handleLogin = () => {
+    // Handle login logic here
+  
+    // Navigate to home screen if login successful
+    navigation.navigate('Home');
+  };
   return (
     <View style={styles.container}>
     <Image source={require('../assets/Logo.png')} style={styles.logo} resizeMode="contain" />
