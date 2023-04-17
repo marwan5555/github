@@ -2,14 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Home = () => {
+const Feed = () => {
   const navigation = useNavigation();
 
   return (
     <View>
-      <Text>หน้าหลัก</Text>
+      <Text>หน้าFeed</Text>
     </View>
   );
 };
 
-export default Home;
+export default Feed;
