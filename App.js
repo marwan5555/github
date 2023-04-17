@@ -5,7 +5,7 @@ import SignupScreen from './screens/SignupScreen';
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen';
 import SplashScreen from './screens/SplashScreen';
 import ChatScreen from './screens/ChatScreen';
-import Home from './screens/Home';
+import BottomTabNavigator from './navigation/BottomTabNavigator'; // เพิ่มไลบรารี
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ export default function App() {
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="SignupScreen" component={SignupScreen} />
       <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
-      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Home" component={BottomTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );
