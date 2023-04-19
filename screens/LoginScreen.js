@@ -22,7 +22,7 @@ const LoginScreen = ({ navigation }) => {
   };
   return (
     <View style={styles.container}>
-    <Image source={require('../assets/Logo.png')} style={styles.logo} resizeMode="contain" />
+    <Image source={require('../assets/Logo1.jpg')} style={styles.logo} resizeMode="contain" />
       <Text style={styles.title}>เข้าสู่ระบบ</Text>
       <TextInput
         style={styles.input}

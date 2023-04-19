@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
+import LoginScreen from './LoginScreen';
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       navigation.reset({
         index: 0,
-        routes: [{ name: 'Login' }],
+        routes: [{ name: 'LoginScreen' }],
       });
     }, 3000);
 
@@ -15,7 +16,7 @@ const SplashScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Image source={require('../assets/Logo.png')} style={styles.logo} />
+      <Image source={require('../assets/Logo1.jpg')} style={styles.logo} />
     </View>
   );
 };
