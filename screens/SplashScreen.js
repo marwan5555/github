@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import LoginScreen from './LoginScreen';
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
