@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      {/* <MainHeader title="Travel App" /> ตรงนี้คือเส้นเมนูบนหน้าหลัก */ }
+       {/* <MainHeader title="Travel App" />  */}
       <ScreenHeader mainTitle="Dream Trip" secondTitle="สำหรับคุณ" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <TopPlacesCarousel list={TOP_PLACES} />
