@@ -16,7 +16,7 @@ const BottomTabNavigator = () => {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Home"
+        name="หน้าหลัก"
         component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -26,7 +26,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Chat"
+        name="แชท"
         component={Chat}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -35,7 +35,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Activity"
+        name="กิจกรรม"
         component={Activity}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -44,7 +44,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Feed"
+        name="ฟีช"
         component={Feed}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -53,7 +53,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Alert"
+        name="แจ้งเตือน"
         component={Alert}
         options={{
           tabBarIcon: ({ color, size }) => (
