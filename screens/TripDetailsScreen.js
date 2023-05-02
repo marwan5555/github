@@ -3,7 +3,7 @@ import {View, StyleSheet} from 'react-native';
 import {colors, sizes, spacing} from '../constants/theme';
 import Icon from '../components/Icon';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import TripDetailsCard from '../components/TripDetailsCard';
+import TripDetailsCard from '../components/TripDetailsCarousel';
 import * as Animatable from 'react-native-animatable';
 import TripDetailsCarousel from '../components/TripDetailsCarousel';
 
