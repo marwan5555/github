@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: colors.white,
     paddingHorizontal: 2,
-    paddingVertical: 4,
-    borderRadius: sizes.radius,
+    paddingVertical: 8,
+    borderRadius: sizes.radius, //สีของปุ่มเลื่อนรูปในเมนู
   },
   dot: {
     backgroundColor: colors.primary,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: colors.primary,
     borderRadius: sizes.radius,
-    top: 4,
+    top: 8,
   },
 });
 

@@ -11,15 +11,15 @@ const TripDetailsCarousel = ({slides, id}) => {
     <>
       <Animated.FlatList
         data={slides}
-        horizontal
+        horizontal //ที่ทำให้ภาพเป็นเลี่อยด้านข้าง
         pagingEnabled
-        bounces={false}
+        bounces={false} // เอฟ สะท้องกลับ
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {x: scrollAnimated}}}],
           {useNativeDriver: false},
         )}
         renderItem={({item: image, index}) => {
-          if (!index) {
+          if (!index) { 
             return (
               <View style={styles.slide}>
                 <SharedElement id={`trip.${id}.image`} style={styles.slide}>

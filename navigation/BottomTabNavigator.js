@@ -1,13 +1,12 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import Home from '../screens/Home';
-import Activity from '../screens/Activity';
-import Chat from '../screens/Chat';
-import Feed from '../screens/Feed';
-import Alert from '../screens/Alert';
-import { Ionicons } from '@expo/vector-icons';
-import TripDetailsScreen from '../screens/TripDetailsScreen';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import Home from "../screens/Home";
+import Activity from "../screens/Activity";
+import Chat from "../screens/Chat";
+import Feed from "../screens/Feed";
+import Alert from "../screens/Alert";
+import { Ionicons } from "@expo/vector-icons";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -20,9 +19,8 @@ const BottomTabNavigator = () => {
         component={Home}
         options={{
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home-outline" size={size} color={color} />     
+            <Ionicons name="home-outline" size={size} color={color} />
           ),
-          
         }}
       />
       <Tab.Screen
@@ -61,7 +59,6 @@ const BottomTabNavigator = () => {
           ),
         }}
       />
-    
     </Tab.Navigator>
   );
 };

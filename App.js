@@ -42,10 +42,7 @@ export default function App() {
         <Stack.Screen
           name="TripDetails"
           component={TripDetailsScreen}
-          options={{
-            headerShown: false,
-            gestureEnabled:false
-          }}
+          options={{ headerShown: false, }}
         />
       </Stack.Navigator>
     </NavigationContainer>

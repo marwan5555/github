@@ -1,9 +1,9 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Image} from 'react-native';
 import {colors, sizes, spacing} from '../constants/theme';
 import Icon from '../components/Icon';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import TripDetailsCard from '../components/TripDetailsCarousel';
+import TripDetailsCard from '../components/TripDetailsCard';
 import * as Animatable from 'react-native-animatable';
 import TripDetailsCarousel from '../components/TripDetailsCarousel';
 
@@ -11,7 +11,7 @@ import TripDetailsCarousel from '../components/TripDetailsCarousel';
 const TripDetailsScreen = ({navigation, route}) => {
   const insets = useSafeAreaInsets();
   const {trip} = route.params;
-  const slides = [trip.image, ...trip.gallery];
+  const slides = [trip.image, ...trip.gallery]; //การทำให้เป็นภาพสไลด์ กับบรรทัก 30
   return (
     <View style={styles.container}>
       <Animatable.View
@@ -26,7 +26,7 @@ const TripDetailsScreen = ({navigation, route}) => {
           onPress={navigation.goBack}
         />
       </Animatable.View>
-      <TripDetailsCarousel slides={slides}/>
+      <TripDetailsCarousel slides={slides}/> 
       <TripDetailsCard trip={trip} />
     </View>
   );
