@@ -12,8 +12,9 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from "react-native-reanimated";
-import Divider  from '../shared/Divider';
+import Divider from "../shared/Divider";
 import SectionHeader from "../shared/SectionHeader";
+import RatingOverall from "../shared/Rating/RatingOverall";
 
 const AnimatableDivider = Animated.createAnimatedComponent(Divider);
 
@@ -46,13 +47,13 @@ const TripDetailsCard = ({ trip }) => {
   }));
 
   const contentStyle = useAnimatedStyle(() => ({
-    transform:[
+    transform: [
       {
-        translateY:interpolate(
+        translateY: interpolate(
           animatedIndex.value,
-          [0,0.08],
-          [40,0],
-          Extrapolation.CLAMP,
+          [0, 0.08],
+          [40, 0],
+          Extrapolation.CLAMP
         ),
       },
     ],
@@ -60,7 +61,7 @@ const TripDetailsCard = ({ trip }) => {
       animatedIndex.value,
       [0, 0.08],
       [0, 1],
-      Extrapolation.CLAMP,
+      Extrapolation.CLAMP
     ),
   }));
 
@@ -89,22 +90,24 @@ const TripDetailsCard = ({ trip }) => {
           </Animated.Text>
         </View>
       </Animatable.View>
-      <AnimatableDivider style={contentStyle}/>
+      <AnimatableDivider style={contentStyle} />
       <BottomSheetScrollView
+        style={styles.scrollBox}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
       >
         <Animated.View style={contentStyle}>
-        <SectionHeader
-          title="Summary"
-          containerStyle={styles.SectionHeader} 
-          titleStyle={styles.sectionTitle}
-        />
-        {/* ตัวอักษรในแถวข้อมูลด้านล่างเส้น ตรง title คือ คำ
+        <RatingOverall rating={trip.rating} containerStyle={styles.rating} />
+          <SectionHeader
+            title="Summary"
+            containerStyle={styles.SectionHeader}
+            titleStyle={styles.sectionTitle}
+          />
+          {/* ตัวอักษรในแถวข้อมูลด้านล่างเส้น ตรง title คือ คำ
         ส่วนที่เหลือเป็นการกำหนดstyles*/}
-        <View style={styles.summary}>
-        <Text style={styles.summaryText}>{trip.description}</Text>
-        </View>
+          <View style={styles.summary}>
+            <Text style={styles.summaryText}>{trip.description}</Text>
+          </View>
         </Animated.View>
       </BottomSheetScrollView>
     </BottomSheet>
@@ -132,19 +135,26 @@ const styles = StyleSheet.create({
   locationIcon: {
     tintColor: colors.gray,
   },
+  scrollBox:{
+    marginTop: spacing.s,
+    marginBottom: spacing.m,
+  },
   SectionHeader: {
     marginTop: spacing.m,
   },
   sectionTitle: {
     color: colors.lightGray,
-    fontWeight: 'normal',
+    fontWeight: "normal",
   },
   summary: {
-  marginHorizontal: spacing.l,
+    marginHorizontal: spacing.l,
   },
   summaryText: {
     color: colors.primary,
   },
+  rating: {
+    marginHorizontal: spacing.l,
+  },
 });
-  
+
 export default TripDetailsCard;
