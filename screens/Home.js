@@ -7,23 +7,23 @@ import TopPlacesCarousel from '../components/TopPlacesCarousel';
 import {PLACES, TOP_PLACES} from '../data';
 import SectionHeader from '../components/shared/SectionHeader';
 import TripsList from '../components/TripsList';
-import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
-  const navigation = useNavigation();
+  
 
   return (
     <View style={styles.container}>
-       {/* <MainHeader title="Travel App" />  */}
+       <MainHeader title="ท่องเที่ยวสุคีรีน" /> 
       <ScreenHeader mainTitle="Dream Trip" secondTitle="สำหรับคุณ" />
       <ScrollView showsVerticalScrollIndicator={false}>
         <TopPlacesCarousel list={TOP_PLACES} />
-        <SectionHeader
+        <SectionHeader //ตรงนี้ข้อความด้านล่าง
           title="ทริปตอนนี้"
           buttonTitle="ทั้งหมด"
           onPress={() => {}}
         />
-        <TripsList list={PLACES} />
+        <TripsList list={PLACES} /> 
+        {/* ตรงกล่องข้างล่าง */}
       </ScrollView>
     </View>
   );

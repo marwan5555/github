@@ -25,7 +25,7 @@ const TopPlacesCarousel = ({list}) => {
       snapToInterval={CARD_WIDTH_SPACING}
       decelerationRate="fast"
       showsHorizontalScrollIndicator={false}
-      keyExtractor={i => i.id}
+      keyExtractor={i => i.id} // ที่เซ็ตidรูป
       renderItem={({item, index}) => {
         return (
           <TouchableOpacity
@@ -34,20 +34,23 @@ const TopPlacesCarousel = ({list}) => {
             }}
             style={{
               marginLeft: spacing.l,
-              marginRight: index === list.length - 1 ? spacing.l : 0,
+              marginRight: index === list.length - 1 ? spacing.l : 0, // ช่องว่างรูป
             }}>
             <View style={[styles.card, shadow.dark]}>
-              <FavoriteButton style={styles.favorite} />
+              <FavoriteButton style={styles.favorite} /> 
+              {/* ส่วนของรูปหัวใจ */}
               <SharedElement
                 id={`trip.${item.id}.image`}
                 style={StyleSheet.absoluteFillObject}>
-                <View style={styles.imageBox}>
+                <View style={styles.imageBox}> 
+                {/* แสดงรูปในรูปแบบ box  */}
                   <Image source={item.image} style={styles.image} />
                 </View>
               </SharedElement>
               <View style={styles.titleBox}>
-                <Text style={styles.title}>{item.title}</Text>
+                <Text style={styles.title}>{item.title}</Text> 
                 <Text style={styles.location}>{item.location}</Text>
+                {/* ส่วนของข้อความในกล่อง */}
               </View>
             </View>
           </TouchableOpacity>

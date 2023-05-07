@@ -30,8 +30,9 @@ const TripsList = ({list}) => {
                 <View style={styles.titleBox}>
                   <Text style={styles.title}>{item.title}</Text>
                   <Text style={styles.location}>{item.location}</Text>
+                  {/* ข้อความในกล่องข้างล่าง */}
                 </View>
-                <FavoriteButton />
+                <FavoriteButton style={styles.favoriteButton} />
               </View>
             </View>
           </TouchableOpacity>
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   title: {
-    marginVertical: 4,
+    marginVertical: 9,
     fontSize: sizes.body,
     fontWeight: 'bold',
     color: colors.primary,
@@ -88,6 +89,14 @@ const styles = StyleSheet.create({
     fontSize: sizes.body,
     color: colors.lightGray,
   },
+  favoriteButton: {
+    position: 'absolute',
+    bottom: 8,
+    right: 0,
+    marginBottom: 0,
+    marginRight: 0,
+  },
+  
 });
 
 export default TripsList;
