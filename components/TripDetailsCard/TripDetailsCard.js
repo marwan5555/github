@@ -1,4 +1,4 @@
-import React, { createFactory, useMemo } from "react";
+import React, {useMemo } from "react";
 import { View, StyleSheet, Text } from "react-native";
 import { colors, sizes, spacing } from "../../constants/theme";
 import * as Animatable from "react-native-animatable";
@@ -15,6 +15,7 @@ import Animated, {
 import Divider from "../shared/Divider";
 import SectionHeader from "../shared/SectionHeader";
 import RatingOverall from "../shared/Rating/RatingOverall";
+import HotelsCarousel from "./HotelsCarousel";
 
 const AnimatableDivider = Animated.createAnimatedComponent(Divider);
 
@@ -97,17 +98,21 @@ const TripDetailsCard = ({ trip }) => {
         showsHorizontalScrollIndicator={false}
       >
         <Animated.View style={contentStyle}>
-        <RatingOverall rating={trip.rating} containerStyle={styles.rating} />
+          <RatingOverall rating={trip.rating} containerStyle={styles.rating} />
           <SectionHeader
             title="Summary"
             containerStyle={styles.SectionHeader}
             titleStyle={styles.sectionTitle}
           />
-          {/* ตัวอักษรในแถวข้อมูลด้านล่างเส้น ตรง title คือ คำ
-        ส่วนที่เหลือเป็นการกำหนดstyles*/}
           <View style={styles.summary}>
             <Text style={styles.summaryText}>{trip.description}</Text>
           </View>
+          <SectionHeader
+            title="Hotels"
+            containerStyle={styles.SectionHeader}
+            titleStyle={styles.sectionTitle}
+          />
+          <HotelsCarousel hotels={trip.hotels} />
         </Animated.View>
       </BottomSheetScrollView>
     </BottomSheet>
