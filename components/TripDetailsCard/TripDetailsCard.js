@@ -16,6 +16,7 @@ import Divider from "../shared/Divider";
 import SectionHeader from "../shared/SectionHeader";
 import RatingOverall from "../shared/Rating/RatingOverall";
 import HotelsCarousel from "./HotelsCarousel";
+import Reviews from "../Reviews/Reviews";
 
 const AnimatableDivider = Animated.createAnimatedComponent(Divider);
 
@@ -100,7 +101,7 @@ const TripDetailsCard = ({ trip }) => {
         <Animated.View style={contentStyle}>
           <RatingOverall rating={trip.rating} containerStyle={styles.rating} />
           <SectionHeader
-            title="Summary"
+            title="สรุป"
             containerStyle={styles.SectionHeader}
             titleStyle={styles.sectionTitle}
           />
@@ -108,11 +109,23 @@ const TripDetailsCard = ({ trip }) => {
             <Text style={styles.summaryText}>{trip.description}</Text>
           </View>
           <SectionHeader
-            title="Hotels"
+            title="รายละเอียด"
             containerStyle={styles.SectionHeader}
             titleStyle={styles.sectionTitle}
+            onPress={() => {}}
+            buttonTitle="เพิ่มเติม"
+            // ตรงนี้จะเป็นข้อมูลที่พักกับรายละเอียดกิจกรรม
           />
-          <HotelsCarousel hotels={trip.hotels} />
+          <HotelsCarousel hotels={trip.hotels} /> 
+          <SectionHeader
+            title="รีวิว"
+            containerStyle={styles.SectionHeader}
+            titleStyle={styles.sectionTitle}
+            onPress={() => {}}
+            buttonTitle="เพิ่มเติม"
+            // ตรงนี้จะเป็นข้อมูลที่พักกับรายละเอียดกิจกรรม
+          />
+          <Reviews hotels={trip.reviews} /> 
         </Animated.View>
       </BottomSheetScrollView>
     </BottomSheet>

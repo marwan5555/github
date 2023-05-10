@@ -1,19 +1,19 @@
 import React from "react";
-import Carousel from "../shared/Carousel";
-import { Text, View } from "react-native";
+import { View, Text } from "react-native";
 
 const HotelsCarousel = ({ hotels }) => {
+  React.useEffect(() => {
+    console.log(hotels); // Log the hotels data to the console to check if it's available
+  }, [hotels]);
+
+  if (!hotels) {
+    return <Text>No hotels available</Text>; // Render a message if the hotels data is not available
+  }
+
   return (
-    <Carousel
-      items={hotels}
-      renderItem={({ item, style }) => {
-        return (
-          <View style={style}>
-            <Text>ที่พัก</Text>
-          </View>
-        );
-      }}
-    />
+    <View>
+      {/* Render the hotels data */}
+    </View>
   );
 };
 
