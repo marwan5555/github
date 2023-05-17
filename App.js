@@ -1,117 +1,38 @@
-import { NavigationContainer } from "@react-navigation/native";
-import { CardStyleInterpolators, createStackNavigator } from "@react-navigation/stack";
-import LoginScreen from "./screens/LoginScreen";
-import SignupScreen from "./screens/SignupScreen";
-import ForgotPasswordScreen from "./screens/ForgotPasswordScreen";
-import SplashScreen from "./screens/SplashScreen";
-import BottomTabNavigator from "./navigation/BottomTabNavigator"; // เพิ่มไลบรารี
-import TripDetailsScreen from "../app/screens/TripDetailsScreen";
-import firebase from './config/firebase';
+import React from "react";
+import { Platform, StyleSheet, Text, View } from "react-native";
 
-const Stack = createStackNavigator();
-
-class MyApp extends Component {
-  constructor(){
-      //......
-  }
-  componentDidMount(){
-     const itemsRef = firebase.database().ref('items');
-     itemsRef.on('value',(snapshot) => {
-        let items = snapshot.val();
-        let newState = [];
-        for(let item in items){
-           newState.push({
-              item_id:item,
-              title:items[item].title,
-              description:items[item].description
-           })
-        }
-        this.setState({
-           items:newState
-        })
-     })
-  }
-}
-handleSubmit(e){
-  e.preventDefault();
-
-  if(this.state.item_id !== ''){
-       return this.updateItem()
-  }
-
-  const itemsRef = firebase.database().ref('items')
-  const item = {
-     title : this.state.title,
-     description : this.state.description
-  }
-  itemsRef.push(item)
-  this.setState({
-     item_id:'',
-     title:'',
-     description:''
-  })
-}
-
-handleUpdate = (item_id = null , title = null , description = null) => {
-  this.setState({item_id,title,description})
-}
-
-updateItem(){
-
-    var obj = { title:this.state.title,description:this.state.description }
-
-    const itemsRef = firebase.database().ref('/items')
-
-    itemsRef.child(this.state.item_id).update(obj);
-
-    this.setState({
-      item_id:'',
-      title:'',
-      description:''
-    })
-
-}
-
-removeItem(itemId){
-  const itemsRef = firebase.database().ref('/items');
-  itemsRef.child(itemId).remove();
-}
+import { useFonts } from "expo-font";
+import Navigators from "./navigators";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { NotificationProvider } from "./config/noty";
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "SF-font": require("./assets/fonts/SF-Pro-Rounded-Medium.otf"),
+    "SukhumvitSet-Medium": require("./assets/fonts/SukhumvitSet-Medium.ttf"),
+    "SukhumvitSet-SemiBold": require("./assets/fonts/SukhumvitSet-SemiBold.ttf"),
+    "SukhumvitSet-Bold": require("./assets/fonts/SukhumvitSet-Bold.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="SplashScreen">
-        <Stack.Screen
-          name="SplashScreen"
-          component={SplashScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="LoginScreen"
-          component={LoginScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="SignupScreen"
-          component={SignupScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="ForgotPassword"
-          component={ForgotPasswordScreen}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Home"
-          component={BottomTabNavigator}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="TripDetails"
-          component={TripDetailsScreen}
-          options={{ headerShown: false, }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <BottomSheetModalProvider>
+        <Navigators />
+      </BottomSheetModalProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
